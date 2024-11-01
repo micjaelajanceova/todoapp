@@ -27,6 +27,6 @@ jobs:
           server: ${{ vars.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: test/todo # test.michaelajanceova.com/todo/
+          server-dir: test/todo/ # test.michaelajanceova.com/todo/
           local-dir: dist/
           
