@@ -12,8 +12,8 @@
   --webkit-font-smoothing: antialiased;
   --moz-osx-font-smoothing: grayscale;
 
-  --body-background-color: #f4f4f4;
-  --container-background-color: #fff;
+  --body-background-color: #bab7b3;
+  --container-background-color: #e4e1dc;
   --container-padding: 20px;
   --container-border-radius: 5px;
   --container-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -39,32 +39,36 @@ body {
   width: var(--container-width);
 }
 
-
 h1 {
   text-align: center;
 }
+
 .todo-form {
   display: flex;
   justify-content: space-between;
 }
+
 .todo-form input {
   flex: 1;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 3px;
 }
+
 .todo-form button {
   padding: 10px;
   border: none;
-  background: #28a745;
+  background: #3c3220;
   color: #fff;
   border-radius: 3px;
   cursor: pointer;
 }
+
 .todo-list {
   list-style: none;
   padding: 0;
 }
+
 .todo-item {
   background: #f9f9f9;
   padding: 10px;
@@ -72,19 +76,37 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  word-break: break-word; /* Umožní zalomenie dlhých slov */
 }
+
+.todo-item span {
+  flex: 1; /* Rozšíri text na dostupné miesto */
+  overflow-wrap: break-word; /* Zalamuje text, ak je príliš dlhý */
+  margin-right: 10px; /* Medzera medzi textom a tlačidlami */
+}
+
 .todo-item button {
   border: none;
-  background: #dc3545;
+  background: #aaa294;
+  color: #000000;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-left: 10px; /* Medzera medzi tlačidlami */
+}
+
+#clear-completed {
+  margin-top: 10px; 
+  padding: 10px;
+  border: none;
+  background: #3c3220;
   color: #fff;
   border-radius: 3px;
   cursor: pointer;
 }
 
-
 .input-error {
   border: 2px solid red;
-  background-color: #ffe6e6; /* Optional: Light red background to indicate error */
+  background-color: #ffe6e6;
 }
 
 #error-message {
@@ -92,4 +114,16 @@ h1 {
   font-size: 0.9em;
   margin-top: 5px;
   display: none;
+}
+
+/* Štýl pre zaškrtnutý checkbox */
+input[type="checkbox"]:checked {
+  background-color: #8B4513; /* Hnedá farba */
+  border-color: #8B4513; /* Hnedý obrys */
+}
+
+/* Odstrániť modré obrysy vo Webkite */
+input[type="checkbox"]:checked::-webkit-check-indeterminate {
+  background-color: #8B4513;
+  border-color: #8B4513;
 }
