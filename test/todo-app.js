@@ -7,9 +7,9 @@ fixture ("ToDo App tests")
 
     test('Mark all todos as completed', async t => {
         await t
-            .typeText(Selector('#new-todo'), 'First Todo')
+            .typeText(Selector('#todo-input'), 'First Todo')
             .pressKey('enter')
-            .typeText(Selector('#new-todo'), 'Second Todo')
+            .typeText(Selector('#todo-input'), 'Second Todo')
             .pressKey('enter')
             .click(Selector('#mark-all-completed'));
     
@@ -22,9 +22,9 @@ fixture ("ToDo App tests")
 
     test('Move todo up and down', async t => {
         await t
-            .typeText(Selector('#new-todo'), 'First Todo')
+            .typeText(Selector('#todo-input'), 'First Todo')
             .pressKey('enter')
-            .typeText(Selector('#new-todo'), 'Second Todo')
+            .typeText(Selector('#todo-input'), 'Second Todo')
             .pressKey('enter');
     
         const firstTodoText = await Selector('.todo-item').nth(0).innerText;
