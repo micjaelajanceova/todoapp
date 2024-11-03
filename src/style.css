@@ -12,12 +12,12 @@
   --webkit-font-smoothing: antialiased;
   --moz-osx-font-smoothing: grayscale;
 
-  --body-background-color: #bab7b3;
+  --body-background-color: #d1d1d1;
   --container-background-color: #e4e1dc;
   --container-padding: 20px;
   --container-border-radius: 5px;
   --container-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  --container-width: 300px;
+  --container-width: 500px; /* Further increased width for a spacious layout */
 }
 
 body {
@@ -50,63 +50,87 @@ h1 {
 
 .todo-form input {
   flex: 1;
-  padding: 10px;
+  padding: 15px; /* Increased padding for the input */
   border: 1px solid #ccc;
   border-radius: 3px;
+  margin-right: 10px; /* Space between input and button */
 }
 
 .todo-form button {
-  padding: 10px;
+  padding: 15px; /* Increased padding for button */
   border: none;
   background: #3c3220;
   color: #fff;
-  border-radius: 3px;
+  border-radius: 5px; /* Slightly larger radius for a softer look */
   cursor: pointer;
+  transition: background 0.3s; /* Smooth transition for hover effect */
+}
+
+.todo-form button:hover {
+  background: #aaa294; /* Darker shade for hover effect */
+  transform: scale(1.05);
 }
 
 .todo-list {
   list-style: none;
   padding: 0;
+  margin-top: 20px; /* Space above the todo list */
 }
 
 .todo-item {
   background: #f9f9f9;
-  padding: 10px;
+  padding: 15px; /* Increased padding for items */
   border-bottom: 1px solid #ddd;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  word-break: break-word; /* Umožní zalomenie dlhých slov */
+  word-break: break-word; /* Allow breaking long words */
 }
 
 .todo-item span {
-  flex: 1; /* Rozšíri text na dostupné miesto */
-  overflow-wrap: break-word; /* Zalamuje text, ak je príliš dlhý */
-  margin-right: 10px; /* Medzera medzi textom a tlačidlami */
+  flex: 1; /* Expand text to available space */
+  overflow-wrap: break-word; /* Breaks text if too long */
+  margin-right: 10px; /* Space between text and buttons */
 }
 
 .todo-item button {
   border: none;
   background: #aaa294;
   color: #000000;
-  border-radius: 3px;
+  border-radius: 5px; /* Larger radius for consistency */
   cursor: pointer;
-  margin-left: 10px; /* Medzera medzi tlačidlami */
+  padding: 10px; /* Add padding for buttons */
+  margin-left: 10px; /* Space between buttons */
+  transition: background 0.3s; /* Smooth transition for hover effect */
+}
+
+.todo-item button:hover {
+  background: #bbb5a9; /* Darker shade for hover effect */
 }
 
 #clear-completed {
-  margin-top: 10px; 
-  padding: 10px;
+  margin-top: 20px; /* Space above the button */
+  margin-bottom: 20px; /* Space below Clear Completed button */
+  padding: 15px; /* Increased padding for better touch target */
   border: none;
-  background: #3c3220;
-  color: #fff;
-  border-radius: 3px;
+  background: #3c3220; /* Same color as Mark All Completed for consistency */
+  color: #ffffff;
+  border-radius: 5px; /* Consistent border radius */
   cursor: pointer;
+  transition: background 0.3s, transform 0.2s; /* Smooth transition for hover effect */
+  font-weight: bold; /* Make text bolder for emphasis */
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+#clear-completed:hover {
+  background: #aaa294; /* Darker shade for hover effect */
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 .input-error {
   border: 2px solid red;
-  background-color: #ffe6e6;
+  background-color: #ffe6e6; /* Optional: Light red background to indicate error */
 }
 
 #error-message {
@@ -116,14 +140,20 @@ h1 {
   display: none;
 }
 
-/* Štýl pre zaškrtnutý checkbox */
-input[type="checkbox"]:checked {
-  background-color: #8B4513; /* Hnedá farba */
-  border-color: #8B4513; /* Hnedý obrys */
+
+#mark-all-completed {
+  margin-top: 20px; /* Space above the button */
+  padding: 15px; /* Increased padding for better touch target */
+  border: none;
+  background: #3c3220; /* Different shade for visibility */
+  color: #ffffff;
+  border-radius: 5px; /* Consistent border radius */
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s; /* Smooth transition for hover effect */
+  font-weight: bold; /* Make text bolder for emphasis */
 }
 
-/* Odstrániť modré obrysy vo Webkite */
-input[type="checkbox"]:checked::-webkit-check-indeterminate {
-  background-color: #8B4513;
-  border-color: #8B4513;
+#mark-all-completed:hover {
+  background: #aaa294; /* Darker shade for hover effect */
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }
