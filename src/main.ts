@@ -228,7 +228,7 @@ if (container) {
 
 
 
-/*------------------------ 5. FUNCTION ------------------------------------------ */
+
 /*------------------------ 4. FUNCTION ------------------------------------------ */
 
 // Function to toggle between light and dark mode
@@ -242,6 +242,8 @@ themeToggleButton.textContent = 'Theme';
 themeToggleButton.id = 'light-dark-mode';
 themeToggleButton.addEventListener('click', toggleTheme);
 container?.appendChild(themeToggleButton);
+
+/*------------------------ 5. FUNCTION ------------------------------------------ */
 
 // Function to count completed todos and display the count
 const showCompletedCount = (): void => {

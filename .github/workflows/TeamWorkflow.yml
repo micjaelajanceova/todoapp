@@ -46,6 +46,13 @@ jobs:
         run: testcafe chromium:headless test/todo-app.js
 
 
+      - name: Store artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist/
+
+
     deployment:
     needs: integration-delivery
     runs-on: ubuntu-latest
