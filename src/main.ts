@@ -38,6 +38,13 @@ export const addTodo = (text: string): void => {
 };
 
 
+const countTodos = (): number => {
+  return todos.length; // Return the total count of todos
+};
+console.log(`Total todos: ${countTodos()}`);
+
+
+
 
 
 
@@ -220,6 +227,8 @@ if (container) {
 }
 
 
+
+/*------------------------ 5. FUNCTION ------------------------------------------ */
 /*------------------------ 4. FUNCTION ------------------------------------------ */
 
 // Function to toggle between light and dark mode
@@ -234,7 +243,15 @@ themeToggleButton.id = 'light-dark-mode';
 themeToggleButton.addEventListener('click', toggleTheme);
 container?.appendChild(themeToggleButton);
 
+// Function to count completed todos and display the count
+const showCompletedCount = (): void => {
+  const completedCount = todos.filter(todo => todo.completed).length; // Count completed todos
+  const countDisplay = document.getElementById('completed-count') as HTMLParagraphElement; // Reference to the display element
+  countDisplay.textContent = `Completed Todos: ${completedCount}`; // Update the display with the count
+};
 
+// Attach the function to the button
+document.getElementById('show-completed-count')?.addEventListener('click', showCompletedCount);
 
 
 /**

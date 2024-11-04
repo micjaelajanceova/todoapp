@@ -215,3 +215,19 @@ h1 {
   background: #bbb5a9;
 }
 
+#show-completed-count {
+  background-color: #3c3220; 
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 10px 15px; 
+  font-size: 13px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+#show-completed-count:hover {
+  background-color: #aaa294; 
+  transform: scale(1.05);
+}
