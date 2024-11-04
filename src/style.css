@@ -151,9 +151,12 @@ h1 {
   cursor: pointer;
   transition: background 0.3s, transform 0.2s; /* Smooth transition for hover effect */
   font-weight: bold; /* Make text bolder for emphasis */
+  margin-right: 20px;
 }
 
 #mark-all-completed:hover {
   background: #aaa294; /* Darker shade for hover effect */
   transform: scale(1.05); /* Slightly enlarge on hover */
 }
+
+
