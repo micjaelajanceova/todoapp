@@ -220,6 +220,19 @@ if (container) {
 }
 
 
+/*------------------------ 4. FUNCTION ------------------------------------------ */
+
+// Function to toggle between light and dark mode
+const toggleTheme = (): void => {
+  document.body.classList.toggle('dark-mode');
+};
+
+// Create and add the Theme Toggle button
+const themeToggleButton = document.createElement('button');
+themeToggleButton.textContent = 'Theme';
+themeToggleButton.id = 'light-dark-mode';
+themeToggleButton.addEventListener('click', toggleTheme);
+container?.appendChild(themeToggleButton);
 
 
 
