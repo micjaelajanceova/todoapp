@@ -47,7 +47,7 @@ jobs:
 
 
       - name: Store artifacts
-        uses: actions/upload-artifact@v3
+        uss: actions/upload-artifact@v3
         with:
           name: dist
           path: dist/
