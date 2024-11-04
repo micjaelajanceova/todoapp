@@ -5,4 +5,9 @@ fixture ("ToDo app tests")
 
 
 
-   
+    test("Dummy", async t => {
+    
+        await t
+            .expect(true).eql(true);
+    
+    })
