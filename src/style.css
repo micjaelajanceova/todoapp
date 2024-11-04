@@ -159,4 +159,59 @@ h1 {
   transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
+#light-dark-mode {
+  margin-top: 20px; /* Space above the button */
+  padding: 10px; /* Increased padding for better touch target */
+  border: none;
+  background: #000000; /* Different shade for visibility */
+  color: #ffffff;
+  border-radius: 5px; /* Consistent border radius */
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s; /* Smooth transition for hover effect */
+  font-weight: bold; /* Make text bolder for emphasis */
+  margin-left: 105px;
+}
+
+#light-dark-mode:hover {
+  background: #d7d7d7; /* Darker shade for hover effect */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Adjust specific elements if needed (optional) */
+.dark-mode .container {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.dark-mode #clear-completed {
+  background: #bbb5a9;
+}
+
+.dark-mode #mark-all-completed {
+  background: #bbb5a9;
+}
+
+.dark-mode #light-dark-mode {
+  background: #d7d7d7;
+  color: black;
+}
+
+.dark-mode :hover #light-dark-mode {
+  background: #000000;
+  color: #d7d7d7;
+}
+
+.dark-mode .todo-item {
+  background: #393939;
+  border-bottom: 1px solid #ddd;
+}
+
+.dark-mode .todo-form button {
+  background: #bbb5a9;
+}
 
