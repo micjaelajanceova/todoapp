@@ -1,21 +1,21 @@
 name: TeamWorkflow
 
-   on:
+on:
   push:
     branches:
       - main
 
 jobs:
   integration-delivery:
-    runs-on:  ubuntu-latest
+    runs-on: ubuntu-latest
     environment: Test
     container:
       image: node
-    steps:  
+    steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install dependecies
+      - name: Install dependencies
         run: npm install
 
       - name: Build website
@@ -25,11 +25,14 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
           server: ${{ vars.FTP_SERVER }}
-          username: ${{secrets.FTP_USERNAME }}
-          password: ${{secrets.FTP_PASSWORD }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
           server-dir: test/todo/ # test.michaelajanceova.com/todo/
           local-dir: dist/
 
+
+
+          
       - name: Install TestCafe
         run: npm install -g testcafe
 
@@ -40,7 +43,8 @@ jobs:
         run: apt-get install -y chromium
 
       - name: Run tests
-        run: testcafe chromium:headless test/*
+        run: testcafe chromium:headless test/todo-app.js
+
 
       - name: Store artifacts
         uses: actions/upload-artifact@v3
@@ -48,6 +52,8 @@ jobs:
           name: dist
           path: dist/
 
+
+    
   deployment:
     needs: integration-delivery
     runs-on: ubuntu-latest
