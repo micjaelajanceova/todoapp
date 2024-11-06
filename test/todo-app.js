@@ -13,10 +13,10 @@ const addTodo = async (t, text) => {
 };
 
 fixture("ToDo app tests")
-    .page("https://test.michaelajanceova.com/todo/"); // Use your actual page URL
+    .page("https://test.michaelajanceova.com/todo/");
 
 test('Toggle between light and dark mode', async t => {
-    const themeToggleButton = Selector('#light-dark-mode'); // Assuming a toggle button exists
+    const themeToggleButton = Selector('#light-dark-mode');
     const bodyElement = Selector('body');
 
     // Ensure initial state (light mode)
