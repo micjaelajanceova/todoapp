@@ -5,9 +5,42 @@ fixture ("ToDo app tests")
 
 
 
-    test("Dummy", async t => {
+    test('Toggle between light and dark mode', async t => {
+        const themeToggleButton = Selector('#light-dark-mode');
+        const bodyElement = Selector('body');
     
+        // Ensure initial state (light mode)
+        await t.expect(bodyElement.hasClass('dark-mode')).notOk();
+    
+        // Click the toggle button to switch to dark mode
+        await t.click(themeToggleButton);
+        await t.expect(bodyElement.hasClass('dark-mode')).ok();
+    
+        // Click the toggle button again to switch back to light mode
+        await t.click(themeToggleButton);
+        await t.expect(bodyElement.hasClass('dark-mode')).notOk();
+    });
+
+
+
+    test('Display the completed todos count', async t => {
+        const newTodoInput = Selector('#new-todo-input'); // Selector for the input where todos are added
+        const addTodoButton = Selector('#add-todo-button'); // Selector for the button that adds todos
+        const showCompletedButton = Selector('#show-completed-count');
+        const completedCountDisplay = Selector('#completed-count');
+    
+        // Step 1: Add a new todo
         await t
-            .expect(true).eql(true);
+            .typeText(newTodoInput, 'Test completed todo')
+            .click(addTodoButton);
     
-    })
+        // Step 2: Mark the new todo as completed
+        const todoCheckbox = Selector('.todo-checkbox').nth(0); // Selector for the checkbox to mark as completed
+        await t.click(todoCheckbox);
+    
+        // Step 3: Click the button to display completed count
+        await t.click(showCompletedButton);
+    
+        // Step 4: Verify that the displayed count is 1 (as one todo was completed)
+        await t.expect(completedCountDisplay.textContent).eql('Completed Todos: 1');
+    });
