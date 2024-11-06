@@ -1,20 +1,22 @@
-import { Selector } from "testcafe";
+import { Selector } from 'testcafe';
 
 // Helper function to add todos for testing
 const addTodo = async (t, text) => {
-    const todoInput = Selector('#todo-input');  // Ensure this selector is correct
-
+    const todoInput = Selector('#todo-input');
+    const todoSubmitButton = Selector('button[type="submit"]');  // Targeting submit button by its type
+    
+    // Wait for the input element to be visible
     await t
-      .typeText(todoInput, text)  // Type in the todo input
-      .pressKey('enter');         // Simulate pressing Enter to submit the form
+        .expect(todoInput.exists).ok('Todo input field is not visible')  // Assert element exists
+        .typeText(todoInput, text)  // Type in the todo input
+        .click(todoSubmitButton);   // Submit the form using the button
 };
 
 fixture("ToDo app tests")
-    .page("https://test.michaelajanceova.com/todo/");
+    .page("https://test.michaelajanceova.com/todo/"); // Use your actual page URL
 
-// Test for toggling between light and dark mode
 test('Toggle between light and dark mode', async t => {
-    const themeToggleButton = Selector('#light-dark-mode');
+    const themeToggleButton = Selector('#light-dark-mode'); // Assuming a toggle button exists
     const bodyElement = Selector('body');
 
     // Ensure initial state (light mode)
@@ -29,7 +31,6 @@ test('Toggle between light and dark mode', async t => {
     await t.expect(bodyElement.hasClass('dark-mode')).notOk();
 });
 
-// Test for showing completed todos count
 test('Show completed todos count', async t => {
     // Step 1: Add some todos
     await addTodo(t, 'Test Todo 1');
@@ -37,8 +38,8 @@ test('Show completed todos count', async t => {
     await addTodo(t, 'Test Todo 3');
     
     // Step 2: Mark the first two todos as completed
-    const checkbox1 = Selector('input[type="checkbox"]').nth(0);
-    const checkbox2 = Selector('input[type="checkbox"]').nth(1);
+    const checkbox1 = Selector('input[type="checkbox"]').nth(0); // First checkbox
+    const checkbox2 = Selector('input[type="checkbox"]').nth(1); // Second checkbox
 
     await t
       .click(checkbox1)  // Mark first todo as completed
