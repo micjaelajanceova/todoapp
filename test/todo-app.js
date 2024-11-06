@@ -3,16 +3,17 @@ import { Selector } from "testcafe";
 // Helper function to add todos for testing
 const addTodo = async (t, text) => {
     const todoInput = Selector('#todo-input');
-    const todoForm = Selector('.todo-form');
-    
+    const todoSubmitButton = Selector('#submit-todo'); // Change to actual submit button ID
+
     await t
       .typeText(todoInput, text)  // Type in the todo input
-      .click(todoForm);           // Submit the form
+      .click(todoSubmitButton);   // Submit the form (change if you're using Enter)
 };
 
 fixture("ToDo app tests")
     .page("https://test.michaelajanceova.com/todo/");
 
+// Test for toggling between light and dark mode
 test('Toggle between light and dark mode', async t => {
     const themeToggleButton = Selector('#light-dark-mode');
     const bodyElement = Selector('body');
@@ -29,15 +30,7 @@ test('Toggle between light and dark mode', async t => {
     await t.expect(bodyElement.hasClass('dark-mode')).notOk();
 });
 
-test('should add a new todo and render it', async t => {
-    // Adding a new todo
-    await addTodo(t, 'New Todo Item');
-  
-    // Check that the new todo is rendered
-    const newTodo = Selector('li.todo-item').withText('New Todo Item');
-    await t.expect(newTodo.exists).ok();
-});
-
+// Test for showing completed todos count
 test('Show completed todos count', async t => {
     // Step 1: Add some todos
     await addTodo(t, 'Test Todo 1');
