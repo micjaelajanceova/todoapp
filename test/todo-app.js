@@ -23,27 +23,36 @@ fixture ("ToDo app tests")
     
 
     
-    test('Display the completed todos count', async t => {
-        const newTodoInput = Selector('#todo-input');
-        const showCompletedButton = Selector('#show-completed-count');
-        const completedCountDisplay = Selector('#completed-count');
+    test('should add a new todo and render it', async t => {
+        // Adding a new todo
+        await addTodo(t, 'New Todo Item');
+      
+        // Check that the new todo is rendered
+        const newTodo = Selector('li.todo-item').withText('New Todo Item');
+        await t.expect(newTodo.exists).ok();
+      });
+  
+  
+    test('Show completed todos count', async t => {
+    // Step 1: Add some todos
+    await addTodo(t, 'Test Todo 1');
+    await addTodo(t, 'Test Todo 2');
+    await addTodo(t, 'Test Todo 3');
     
-        // Ensure the input exists
-        await t.expect(newTodoInput.exists).ok('The todo input field should be visible');
+    // Step 2: Mark the first two todos as completed
+    const checkbox1 = Selector('input[type="checkbox"]').nth(0);
+    const checkbox2 = Selector('input[type="checkbox"]').nth(1);
+  
+    await t
+      .click(checkbox1)  // Mark first todo as completed
+      .click(checkbox2); // Mark second todo as completed
+  
+    // Step 3: Click the "Show Completed Count" button
+    const showCompletedCountButton = Selector('#show-completed-count');
+    const countDisplay = Selector('#completed-count');
     
-        // Step 1: Add a new todo
-        await t
-            .typeText(newTodoInput, 'Test completed todo')
-            .pressKey('enter'); // Or use a button click if necessary
-    
-        // Step 2: Mark the new todo as completed
-        const todoCheckbox = Selector('input[type="checkbox"]').nth(0);
-        await t.click(todoCheckbox);
-    
-        // Step 3: Click the button to display completed count
-        await t.click(showCompletedButton);
-    
-        // Step 4: Verify that the displayed count is 1 (as one todo was completed)
-        await t.expect(completedCountDisplay.textContent).eql('Completed Todos: 1');
-    });
+    await t
+      .click(showCompletedCountButton) // Click to show the completed todos count
+      .expect(countDisplay.textContent).eql('Completed Todos: 2'); // Verify the count
+  });
     
