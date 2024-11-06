@@ -109,24 +109,24 @@ todoForm.addEventListener('submit', (event: Event) => {
 
 
 
-//Improved code for step 7 - user input validation - move the error message to the top of the Typescript file
-const errorMessage = document.getElementById('error-message') as HTMLParagraphElement; // Should be moved to the top + added to the HTML file
+// //Improved code for step 7 - user input validation - move the error message to the top of the Typescript file
+// const errorMessage = document.getElementById('error-message') as HTMLParagraphElement; // Should be moved to the top + added to the HTML file
 
-todoForm.addEventListener('submit', (event: Event) => {
-  event.preventDefault(); // Prevent the default form submission behavior
-  const text = todoInput.value.trim(); // Get the value of the input field and remove any leading or trailing whitespace
+// todoForm.addEventListener('submit', (event: Event) => {
+//   event.preventDefault(); // Prevent the default form submission behavior
+//   const text = todoInput.value.trim(); // Get the value of the input field and remove any leading or trailing whitespace
 
-  if (text !== '') { // Check if the input field is empty
-    todoInput.classList.remove('input-error'); // Remove the error highlight if present
-    errorMessage.style.display = 'none'; // Hide the error message
-    addTodo(text); // Add the todo item
-    todoInput.value = ''; // Clear the input field
-  } else {
-    console.log("Please enter a todo item"); // Provide feedback to the user
-    todoInput.classList.add('input-error'); // Add a class to highlight the error
-    errorMessage.style.display = 'block'; // Show the error message
-  }
-});
+//   if (text !== '') { // Check if the input field is empty
+//     todoInput.classList.remove('input-error'); // Remove the error highlight if present
+//     errorMessage.style.display = 'none'; // Hide the error message
+//     addTodo(text); // Add the todo item
+//     todoInput.value = ''; // Clear the input field
+//   } else {
+//     console.log("Please enter a todo item"); // Provide feedback to the user
+//     todoInput.classList.add('input-error'); // Add a class to highlight the error
+//     errorMessage.style.display = 'block'; // Show the error message
+//   }
+// });
 
 
 

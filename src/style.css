@@ -50,131 +50,120 @@ h1 {
 
 .todo-form input {
   flex: 1;
-  padding: 15px; /* Increased padding for the input */
+  padding: 15px;
   border: 1px solid #ccc;
   border-radius: 3px;
-  margin-right: 10px; /* Space between input and button */
+  margin-right: 10px;
 }
 
 .todo-form button {
-  padding: 15px; /* Increased padding for button */
+  padding: 15px; 
   border: none;
   background: #3c3220;
   color: #fff;
-  border-radius: 5px; /* Slightly larger radius for a softer look */
+  border-radius: 5px; 
   cursor: pointer;
-  transition: background 0.3s; /* Smooth transition for hover effect */
+  transition: background 0.3s; 
 }
 
 .todo-form button:hover {
-  background: #aaa294; /* Darker shade for hover effect */
+  background: #aaa294; 
   transform: scale(1.05);
 }
 
 .todo-list {
   list-style: none;
   padding: 0;
-  margin-top: 20px; /* Space above the todo list */
+  margin-top: 20px; 
 }
 
 .todo-item {
   background: #f9f9f9;
-  padding: 15px; /* Increased padding for items */
+  padding: 15px;
   border-bottom: 1px solid #ddd;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  word-break: break-word; /* Allow breaking long words */
+  word-break: break-word; 
 }
 
 .todo-item span {
-  flex: 1; /* Expand text to available space */
-  overflow-wrap: break-word; /* Breaks text if too long */
-  margin-right: 10px; /* Space between text and buttons */
+  flex: 1; 
+  overflow-wrap: break-word; 
+  margin-right: 10px; 
 }
 
 .todo-item button {
   border: none;
   background: #aaa294;
   color: #000000;
-  border-radius: 5px; /* Larger radius for consistency */
+  border-radius: 5px; 
   cursor: pointer;
-  padding: 10px; /* Add padding for buttons */
-  margin-left: 10px; /* Space between buttons */
-  transition: background 0.3s; /* Smooth transition for hover effect */
+  padding: 10px; 
+  margin-left: 10px; 
+  transition: background 0.3s; 
 }
 
 .todo-item button:hover {
-  background: #bbb5a9; /* Darker shade for hover effect */
+  background: #bbb5a9; 
 }
 
 #clear-completed {
-  margin-top: 20px; /* Space above the button */
-  margin-bottom: 20px; /* Space below Clear Completed button */
-  padding: 15px; /* Increased padding for better touch target */
+  margin-top: 20px;
+  margin-bottom: 20px; 
+  padding: 15px; 
   border: none;
-  background: #3c3220; /* Same color as Mark All Completed for consistency */
+  background: #3c3220; 
   color: #ffffff;
-  border-radius: 5px; /* Consistent border radius */
+  border-radius: 5px; 
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s; /* Smooth transition for hover effect */
-  font-weight: bold; /* Make text bolder for emphasis */
+  transition: background 0.3s, transform 0.2s; 
+  font-weight: bold; 
   margin-right: 20px;
   margin-left: 20px;
 }
 
 #clear-completed:hover {
-  background: #aaa294; /* Darker shade for hover effect */
-  transform: scale(1.05); /* Slightly enlarge on hover */
+  background: #aaa294; 
+  transform: scale(1.05); 
 }
 
-.input-error {
-  border: 2px solid red;
-  background-color: #ffe6e6; /* Optional: Light red background to indicate error */
-}
-
-#error-message {
-  color: red;
-  font-size: 0.9em;
-  margin-top: 5px;
-  display: none;
-}
 
 
 #mark-all-completed {
-  margin-top: 20px; /* Space above the button */
-  padding: 15px; /* Increased padding for better touch target */
+  margin-top: 20px;
+  padding: 15px; 
   border: none;
-  background: #3c3220; /* Different shade for visibility */
+  background: #3c3220; 
   color: #ffffff;
-  border-radius: 5px; /* Consistent border radius */
+  border-radius: 5px; 
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s; /* Smooth transition for hover effect */
-  font-weight: bold; /* Make text bolder for emphasis */
+  transition: background 0.3s, transform 0.2s; 
+  font-weight: bold; 
   margin-right: 20px;
 }
 
 #mark-all-completed:hover {
-  background: #aaa294; /* Darker shade for hover effect */
-  transform: scale(1.05); /* Slightly enlarge on hover */
+  background: #aaa294; 
+  transform: scale(1.05);
 }
 
 #light-dark-mode {
-  margin-top: 20px; /* Space above the button */
-  padding: 10px; /* Increased padding for better touch target */
+  margin-top: 20px;
+  padding: 10px; 
   border: none;
-  background: #000000; /* Different shade for visibility */
+  background: #000000; 
   color: #ffffff;
-  border-radius: 5px; /* Consistent border radius */
+  border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s; /* Smooth transition for hover effect */
-  font-weight: bold; /* Make text bolder for emphasis */
+  transition: background 0.3s, transform 0.2s; 
+  font-weight: bold; 
   margin-left: 105px;
 }
 
 #light-dark-mode:hover {
-  background: #d7d7d7; /* Darker shade for hover effect */
-  transform: scale(1.05); /* Slightly enlarge on hover */
+  background: #d7d7d7; 
+  transform: scale(1.05); 
 }
 
 .dark-mode {
@@ -182,7 +171,7 @@ h1 {
   color: #fff;
 }
 
-/* Adjust specific elements if needed (optional) */
+
 .dark-mode .container {
   background-color: #1a1a1a;
   color: #fff;
