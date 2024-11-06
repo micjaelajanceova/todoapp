@@ -20,22 +20,21 @@ fixture ("ToDo app tests")
         await t.click(themeToggleButton);
         await t.expect(bodyElement.hasClass('dark-mode')).notOk();
     });
-
-
+    
 
     test('Display the completed todos count', async t => {
-        const newTodoInput = Selector('#new-todo-input'); // Selector for the input where todos are added
-        const addTodoButton = Selector('#add-todo-button'); // Selector for the button that adds todos
+        const newTodoInput = Selector('#todo-input'); 
+        const addTodoForm = Selector('.todo-form');
         const showCompletedButton = Selector('#show-completed-count');
         const completedCountDisplay = Selector('#completed-count');
     
         // Step 1: Add a new todo
         await t
             .typeText(newTodoInput, 'Test completed todo')
-            .click(addTodoButton);
+            .pressKey('enter'); // Submit the form to add the todo
     
         // Step 2: Mark the new todo as completed
-        const todoCheckbox = Selector('.todo-checkbox').nth(0); // Selector for the checkbox to mark as completed
+        const todoCheckbox = Selector('input[type="checkbox"]').nth(0); // Checkbox to mark as completed
         await t.click(todoCheckbox);
     
         // Step 3: Click the button to display completed count
