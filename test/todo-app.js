@@ -2,12 +2,11 @@ import { Selector } from "testcafe";
 
 // Helper function to add todos for testing
 const addTodo = async (t, text) => {
-    const todoInput = Selector('#todo-input');
-    const todoSubmitButton = Selector('#submit-todo'); // Change to actual submit button ID
+    const todoInput = Selector('#todo-input');  // Ensure this selector is correct
 
     await t
       .typeText(todoInput, text)  // Type in the todo input
-      .click(todoSubmitButton);   // Submit the form (change if you're using Enter)
+      .pressKey('enter');         // Simulate pressing Enter to submit the form
 };
 
 fixture("ToDo app tests")
